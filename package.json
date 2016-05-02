@@ -1,7 +1,7 @@
 {
   "name": "hive-plugin-author-colors",
-  "version": "0.1.0",
-  "description": "Authorship markers plugin for hive.js",
+  "version": "0.1.1",
+  "description": "Choose-your-color plugin for hive.js (used for authorship-markers, cursor-broadcast, etc.)",
   "main": "index.js",
   "dependencies": {
     "virtual-dom": "2.x",
