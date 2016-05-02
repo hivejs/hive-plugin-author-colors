@@ -1,0 +1,29 @@
+{
+  "name": "hive-plugin-author-colors",
+  "version": "0.1.0",
+  "description": "Authorship markers plugin for hive.js",
+  "main": "index.js",
+  "dependencies": {
+    "virtual-dom": "2.x",
+    "atomic-emitter": "3.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hivejs/hive-plugin-author-colors.git"
+  },
+  "keywords": [
+    "hivejs",
+    "hive.js"
+  ],
+  "author": "Marcel Klehr <mklehr@gmx.net>",
+  "license": {
+    "license": "MPL-2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/hivejs/hive-plugin-author-colors/issues"
+  },
+  "homepage": "https://github.com/hivejs/hive-plugin-author-colors"
+}

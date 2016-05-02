@@ -1,0 +1,10 @@
+.Presence__User {
+  position: relative;
+  border-left: 4px solid transparent;
+}
+.Presence__User input[type=color] {
+  width:1cm;
+  position:absolute;
+  right: 0;
+  top: .05cm;
+}
