@@ -47,8 +47,8 @@ function setup(plugin, imports, register) {
   var authorColors = {
     action_setColor: function*(color) {
       var state = ui.store.getState()
-      yield api.action_user_update(state.session.user.id, {color})
       yield {type: SET_COLOR, payload: color, id: state.session.user.id}
+      yield api.action_user_update(state.session.user.id, {color})
     }
   }
 
@@ -61,16 +61,28 @@ function setup(plugin, imports, register) {
 
     // Color picker if user === this user
     if(user.id == state.session.user.id) {
-      var input = h('input.btn.btn-default',
-      { attributes: {type: 'color', value: color}
+      // invisible input
+      var input = new Widget(h('input', {
+        attributes: {type: 'color', value: color}
       , 'ev-change': evt => {
-          store.dispatch(authorshipMarkers.action_setColor(evt.currentTarget.value))
+          store.dispatch(authorColors.action_setColor(evt.currentTarget.value))
         }
-      })
-     children.push(input)
+      }))
+      children.push(input)
+      // visible button that triggers the color input :/ hACk alarm
+      var button = h('button.btn.btn-default.btn-xs', {
+        'ev-click': evt => input.node.click()
+      , style: {color: color}
+      }, h('i.glyphicon.glyphicon-tint'))
+      children.push(button)
     }
   })
 
   register(null, {authorColors: authorColors})
 }
 
+const Widget = function (vnode){this.node = vdom.create(vnode)}
+Widget.prototype.type = "Widget"
+Widget.prototype.init = function(){return this.node}
+Widget.prototype.update = function(previous, domNode){this.node = domNode; return null}
+Widget.prototype.destroy = function(domNode){}
