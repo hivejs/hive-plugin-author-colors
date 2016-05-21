@@ -49,6 +49,7 @@ function setup(plugin, imports, register) {
       var state = ui.store.getState()
       yield {type: SET_COLOR, payload: color, id: state.session.user.id}
       yield api.action_user_update(state.session.user.id, {color})
+      yield presence.action_loadUser(state.session.user.id)
     }
   }
 
